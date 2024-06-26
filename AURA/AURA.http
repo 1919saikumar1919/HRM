@@ -1,0 +1,6 @@
+@AURA_HostAddress = http://localhost:5151
+
+GET {{AURA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
