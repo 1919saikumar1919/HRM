@@ -10,7 +10,7 @@ namespace HRM.Models
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = "";
         public string Genger { get; set; } = "";
-        public string materialstatus { get; set; } = "";
+        public string Materialstatus { get; set; } = "";
         public DateOnly DOB { get; set; }
         public int Age { get; set; }
         public string Address { get; set; } = "";
