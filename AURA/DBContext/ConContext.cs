@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HRM.DBContext
 {
-    public class DBContext : DbContext
+    public class ConContext : DbContext
     {
-        public DBContext(DbContextOptions<DBContext>options): base(options) 
+        public ConContext(DbContextOptions<ConContext>options): base(options) 
         {
 
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HRM.Migrations
 {
     /// <inheritdoc />
-    public partial class INIT : Migration
+    public partial class myfirstmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,10 +44,10 @@ namespace HRM.Migrations
                 columns: table => new
                 {
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Salary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Salary = table.Column<long>(type: "bigint", nullable: false),
                     Occupation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfJoining = table.Column<DateOnly>(type: "date", nullable: false),
+                    DateOfJoining = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Designation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
@@ -66,7 +66,7 @@ namespace HRM.Migrations
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genger = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Materialstatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
+                    DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),

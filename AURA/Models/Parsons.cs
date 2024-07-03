@@ -11,12 +11,10 @@ namespace HRM.Models
         public string LastName { get; set; } = "";
         public string Genger { get; set; } = "";
         public string Materialstatus { get; set; } = "";
-        public DateOnly DOB { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
         public string Address { get; set; } = "";
         public string Email { get; set; } = string.Empty;
-        public decimal Phone_no { get; set; }
-
-       
+        public string PhoneNumber { get; set; }  
     }
 }

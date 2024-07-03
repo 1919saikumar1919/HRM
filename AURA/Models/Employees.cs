@@ -7,10 +7,10 @@ namespace HRM.Models
     {
         [Key]
         public Guid EmployeeId { get; set; }// guid is a return type like int its create the randome different numbers upto 16 digits.
-        public decimal Salary { get; set; }
+        public long Salary { get; set; }
         public string Occupation { get; set; }
         public string Position { get; set; } = "";
-        public DateOnly DateOfJoining { get; set; }
+        public DateTime DateOfJoining { get; set; }
         public string Designation { get; set; }
         public Guid DepartmentId { get; set; }
         public status Status { get; set; }
