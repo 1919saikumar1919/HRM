@@ -12,9 +12,10 @@ namespace AURA.Models
         public string CadidatePermanentAddress { get; set; }
         public string Experiance { get; set; }
         public string Domain { get; set; }
-        [ForeignKey ("ParsonId")]
-        public int ParsonId { get; set; }
-        //  public Parsons ParsonData { get; set; }
+       
+        public Guid ParsonId { get; set; }
+        [ForeignKey("ParsonId")]
+        public Parsons ParsonData { get; set; }
 
 
 

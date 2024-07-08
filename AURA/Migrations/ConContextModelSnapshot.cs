@@ -40,10 +40,12 @@ namespace HRM.Migrations
                     b.Property<string>("Experiance")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ParsonId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ParsonId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CandidateId");
+
+                    b.HasIndex("ParsonId");
 
                     b.ToTable("Candidates");
                 });
@@ -66,6 +68,9 @@ namespace HRM.Migrations
                 {
                     b.Property<Guid>("EmployeeId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CandidateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DateOfJoining")
@@ -91,6 +96,10 @@ namespace HRM.Migrations
 
                     b.HasKey("EmployeeId");
 
+                    b.HasIndex("CandidateId");
+
+                    b.HasIndex("DepartmentId");
+
                     b.ToTable("Employees");
                 });
 
@@ -106,7 +115,7 @@ namespace HRM.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DOB")
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -124,12 +133,42 @@ namespace HRM.Migrations
                     b.Property<string>("Materialstatus")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Phone_no")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ParsonId");
 
                     b.ToTable("Parsons");
+                });
+
+            modelBuilder.Entity("AURA.Models.Candidates", b =>
+                {
+                    b.HasOne("HRM.Models.Parsons", "ParsonData")
+                        .WithMany()
+                        .HasForeignKey("ParsonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ParsonData");
+                });
+
+            modelBuilder.Entity("HRM.Models.Employees", b =>
+                {
+                    b.HasOne("AURA.Models.Candidates", "CandidatesData")
+                        .WithMany()
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HRM.Models.Departments", "DepartmetsData")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CandidatesData");
+
+                    b.Navigation("DepartmetsData");
                 });
 #pragma warning restore 612, 618
         }
